@@ -1,6 +1,7 @@
 import { spawn } from 'node:child_process';
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { createServer } from 'node:http';
+import { handleGameRequest } from './game-proxy.mjs';
 
 const token = process.env.MIDNIGHT_BRIDGE_TOKEN;
 if (!token || token.length < 32) {
@@ -48,6 +49,8 @@ const authorized = (value) => {
 
 const server = createServer(async (req, res) => {
   res.setHeader('Cache-Control', 'no-store');
+
+  if (await handleGameRequest(req, res)) return;
 
   if (req.method === 'GET' && req.url === '/health') {
     let ready = false;
