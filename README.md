@@ -1,4 +1,6 @@
-# Midnight Arcade OmniRoute gateway for Hostless
+# Midnight
+
+OmniRoute gateway for Midnight Arcade on Hostless.
 
 This repository deploys the official OmniRoute 3.8.51 image on a 1 GB Hostless app. Hostless currently advertises a no-card free allowance of 0.5 vCPU and 1 GB RAM with no idle sleep. The deployment uses that entire compute allowance. Check the plan details before adding other services.
 
